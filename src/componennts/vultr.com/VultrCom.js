@@ -1,28 +1,25 @@
 import { Scale } from "../scale/Scale";
 
-import BackblazeImage from "../../icons/backblaze.png";
+import VultrImage from "../../icons/vultr.png";
 import { useWidth } from "../WidthContext";
 import { useEffect } from "react";
 
-const BackblazeCom = ({ inputValue }) => {
+const VultrCom = ({ inputValue }) => {
   const { storage, transfer, isMin } = inputValue;
 
-  const { backblazeComWidth, setBackblazeComWidth } = useWidth();
+  const { vultrComWidth, setVultrComWidth } = useWidth();
 
-  const minPrice = 7;
-  const backblazeStoragePrice = 0.005;
-  const backblazeTransferPrice = 0.01;
+  const minPrice = 5;
+  const storagePrice = 0.01;
+  const transferPrice = 0.01;
 
-  let total =
-    backblazeStoragePrice * storage + backblazeTransferPrice * transfer;
+  let total = storagePrice * storage + transferPrice * transfer;
 
   if (total <= minPrice) {
     total = minPrice;
   }
 
-  useEffect(() => {
-    setBackblazeComWidth(total);
-  }, [setBackblazeComWidth, total]);
+  useEffect(() => setVultrComWidth(total), [setVultrComWidth, total]);
 
   return (
     <div
@@ -46,14 +43,14 @@ const BackblazeCom = ({ inputValue }) => {
           paddingRight: "20px",
         }}
       >
-        <p>backblaze</p>
-        <img src={BackblazeImage} alt="#" />
+        <p>vultr</p>
+        <img src={VultrImage} alt="#" />
       </div>
-      <Scale width={backblazeComWidth} color={(isMin && "#FF0000") || "grey"} />
 
+      <Scale width={vultrComWidth} color={(isMin && "#4a86e8") || "grey"} />
       <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
     </div>
   );
 };
 
-export default BackblazeCom;
+export default VultrCom;

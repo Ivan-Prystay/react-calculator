@@ -1,14 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledInput = styled.input`
-  &::-webkit-slider-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #000;
-    border-radius: 50%;
-  }
-`;
+const StyledInput = styled.input``;
 
 const Range = ({ value, onChange }) => {
   const handleChange = (e) => {

@@ -1,39 +1,42 @@
 import { Scale } from "../scale/Scale";
 
-import BunnyImage from "../../icons/bunny.png";
+import ScalewayImage from "../../icons/scaleway.png";
 import { useEffect, useState } from "react";
 import { useWidth } from "../WidthContext";
 
-const BunnyNet = ({ inputValue }) => {
-  const [selectedDisk, setSelectedDisk] = useState("hdd"); // Початково вибраний HDD
+const ScalewayCom = ({ inputValue }) => {
+  const [selectedDisk, setSelectedDisk] = useState("single");
 
   const { storage, transfer, isMin } = inputValue;
+  const { scalewayComWidth, setScalewayComWidth } = useWidth();
 
-  const { bunnyNetWidth, setBunnyNetWidth } = useWidth();
+  let scalewayMultiPrice = 0.06;
+  let scalewaySinglePrice = 0.03;
+  let scalewayTransferPrice = 0.02;
 
-  const maxPrice = 10;
-  const bunnyStorageHDDPrice = 0.01;
-  const bunnyStorageSSDPrice = 0.02;
-  const bunnyTransferPrice = 0.01;
+  if (storage < 75) {
+    scalewayMultiPrice = 0;
+    scalewaySinglePrice = 0;
+  }
+
+  if (transfer < 75) {
+    scalewayTransferPrice = 0;
+  }
 
   let price;
-  if (selectedDisk === "hdd") {
-    price = bunnyStorageHDDPrice;
+  if (selectedDisk === "single") {
+    price = scalewaySinglePrice;
   } else {
-    price = bunnyStorageSSDPrice;
+    price = scalewayMultiPrice;
   }
 
-  let total = price * storage + bunnyTransferPrice * transfer;
-
-  if (total > maxPrice) {
-    total = maxPrice;
-  }
+  let total = price * (storage - 75) + scalewayTransferPrice * (transfer - 75);
 
   const handleDiskChange = (event) => {
     setSelectedDisk(event.target.id);
   };
 
-  useEffect(() => setBunnyNetWidth(total), [setBunnyNetWidth, total]);
+  useEffect(() => setScalewayComWidth(total), [setScalewayComWidth, total]);
 
   return (
     <div
@@ -58,30 +61,31 @@ const BunnyNet = ({ inputValue }) => {
         }}
       >
         <form>
-          <legend>bunny</legend>
+          <legend>scaleway</legend>
           <input
-            id="hdd"
+            id="multi"
             type="radio"
             name="disk"
-            checked={selectedDisk === "hdd"}
+            checked={selectedDisk === "multi"}
             onChange={handleDiskChange}
           />
-          <label htmlFor="hdd">HDD</label>
+          <label htmlFor="multi">Multi</label>
           <input
-            id="ssd"
+            id="single"
             type="radio"
             name="disk"
-            checked={selectedDisk === "ssd"}
+            checked={selectedDisk === "single"}
             onChange={handleDiskChange}
           />
-          <label htmlFor="ssd">SSD</label>
+          <label htmlFor="single">Single</label>
         </form>
-        <img src={BunnyImage} alt="BunnyImage" height={30} />
+        <img src={ScalewayImage} alt="Scaleway" height={30} />
       </div>
-      <Scale width={bunnyNetWidth} color={(isMin && "#FF9900") || "grey"} />
+
+      <Scale width={scalewayComWidth} color={(isMin && "#FF00FF") || "grey"} />
       <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
     </div>
   );
 };
 
-export default BunnyNet;
+export default ScalewayCom;
