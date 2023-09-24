@@ -36,12 +36,36 @@ function App() {
   return (
     <div>
       <>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <span>Storage: {storage} GB</span>
+        <span>Storage: {storage} GB</span>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            borderLeftWidth: "10px",
+            borderLeftColor: "black",
+            borderLeftStyle: "solid",
+            borderRightWidth: "10px",
+            borderRightColor: "black",
+            borderRightStyle: "solid",
+            marginBottom: "15px",
+          }}
+        >
           <Range storage onChange={handleStorageChange} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <span>Transfer: {transfer} GB</span>
+
+        <span>Transfer: {transfer} GB</span>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            borderLeftWidth: "10px",
+            borderLeftColor: "black",
+            borderLeftStyle: "solid",
+            borderRightWidth: "10px",
+            borderRightColor: "black",
+            borderRightStyle: "solid",
+          }}
+        >
           <Range transfer onChange={handleTransferChange} />
         </div>
       </>

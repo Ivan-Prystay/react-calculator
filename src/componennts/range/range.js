@@ -1,7 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  -webkit-appearance: none;
+
+  &::-webkit-slider-runnable-track {
+    background-color: black;
+    height: 10px;
+  }
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 30px;
+    background: black;
+    margin-top: -10px;
+  }
+  padding: 15px 0;
+  margin: 0;
+`;
 
 const Range = ({ value, onChange }) => {
   const handleChange = (e) => {
