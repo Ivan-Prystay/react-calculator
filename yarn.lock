@@ -6318,10 +6318,10 @@ jest-pnp-resolver@^1.2.2:
   resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.2.3.tgz#930b1546164d4ad5937d5540e711d4d38d4cad2e"
   integrity sha512-+3NpwQEnRoIBtx4fyhblQDPgJI0H1IEIkX7ShLUjPGA7TtUTvI1oiKi3SR4oBR0hQhQR80l4WAe5RrXBwWMA8w==
 
-jest-react@^0.15.0-next-fecc288b7-20221025:
-  version "0.15.0-next-fecc288b7-20221025"
-  resolved "https://registry.yarnpkg.com/jest-react/-/jest-react-0.15.0-next-fecc288b7-20221025.tgz#690493812163f7d4a5f339754e78a89d0ea503b3"
-  integrity sha512-AK50YHihk7aBjuduDl1UV3Un1WrrCitRSZsogtdO1qhYiIyyToQiBDnsXyHsNVKpCR4Lg6+3o3RaqB+EvAEn5Q==
+jest-react@^0.14:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/jest-react/-/jest-react-0.14.0.tgz#d8d62ae76a5c76cd42d627bc061eea8fb0d4b78b"
+  integrity sha512-edKkKBvG4iVbEm6ogCiu9uTUCLNpj2V4dpM0dcrxBz7OTd2lvng2ELkLqji1tdq2BtEXkfhDbqgecNFn4W+KDQ==
 
 jest-regex-util@^27.5.1:
   version "27.5.1"
