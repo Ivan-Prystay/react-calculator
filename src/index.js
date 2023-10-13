@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./componennts/App";
-import { WidthProvider } from "./componennts/WidthContext";
+import App from "./components/App";
+import { WidthProvider } from "./components/WidthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,8 +1,12 @@
-import { Scale } from "../scale/Scale";
-
-import VultrImage from "../../icons/vultr.png";
 import { useWidth } from "../WidthContext";
 import { useEffect } from "react";
+
+import { Scale } from "../Scale/Scale";
+import VultrImage from "../../icons/vultr.png";
+import {
+  ProviderContainer,
+  ProviderDescription,
+} from "components/ProviderElements/ProviderElements";
 
 const VultrCom = ({ inputValue }) => {
   const { storage, transfer, isMin } = inputValue;
@@ -22,34 +26,14 @@ const VultrCom = ({ inputValue }) => {
   useEffect(() => setVultrComWidth(total), [setVultrComWidth, total]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          width: "150px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRight: "10px",
-          borderRightColor: "black",
-          borderRightStyle: "solid",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+    <ProviderContainer>
+      <ProviderDescription>
         <p>vultr</p>
         <img src={VultrImage} alt="#" />
-      </div>
-
+      </ProviderDescription>
       <Scale width={vultrComWidth} color={(isMin && "#4a86e8") || "grey"} />
       <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
-    </div>
+    </ProviderContainer>
   );
 };
 

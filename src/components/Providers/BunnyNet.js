@@ -1,8 +1,12 @@
-import { Scale } from "../scale/Scale";
-
-import BunnyImage from "../../icons/bunny.png";
 import { useEffect, useState } from "react";
 import { useWidth } from "../WidthContext";
+
+import {
+  ProviderContainer,
+  ProviderDescription,
+} from "components/ProviderElements/ProviderElements";
+import { Scale } from "../Scale/Scale";
+import BunnyImage from "../../icons/bunny.png";
 
 const BunnyNet = ({ inputValue }) => {
   const [selectedDisk, setSelectedDisk] = useState("hdd"); // Початково вибраний HDD
@@ -36,27 +40,8 @@ const BunnyNet = ({ inputValue }) => {
   useEffect(() => setBunnyNetWidth(total), [setBunnyNetWidth, total]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          width: "150px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRight: "10px",
-          borderRightColor: "black",
-          borderRightStyle: "solid",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+    <ProviderContainer>
+      <ProviderDescription>
         <form>
           <legend>bunny</legend>
           <input
@@ -77,10 +62,10 @@ const BunnyNet = ({ inputValue }) => {
           <label htmlFor="ssd">SSD</label>
         </form>
         <img src={BunnyImage} alt="BunnyImage" height={30} />
-      </div>
+      </ProviderDescription>
       <Scale width={bunnyNetWidth} color={(isMin && "#FF9900") || "grey"} />
       <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
-    </div>
+    </ProviderContainer>
   );
 };
 

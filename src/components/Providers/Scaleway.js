@@ -1,8 +1,12 @@
-import { Scale } from "../scale/Scale";
-
-import ScalewayImage from "../../icons/scaleway.png";
 import { useEffect, useState } from "react";
 import { useWidth } from "../WidthContext";
+
+import { Scale } from "../Scale/Scale";
+import ScalewayImage from "../../icons/scaleway.png";
+import {
+  ProviderContainer,
+  ProviderDescription,
+} from "components/ProviderElements/ProviderElements";
 
 const ScalewayCom = ({ inputValue }) => {
   const [selectedDisk, setSelectedDisk] = useState("single");
@@ -39,27 +43,8 @@ const ScalewayCom = ({ inputValue }) => {
   useEffect(() => setScalewayComWidth(total), [setScalewayComWidth, total]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          width: "150px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRight: "10px",
-          borderRightColor: "black",
-          borderRightStyle: "solid",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+    <ProviderContainer>
+      <ProviderDescription>
         <form>
           <legend>scaleway</legend>
           <input
@@ -80,11 +65,11 @@ const ScalewayCom = ({ inputValue }) => {
           <label htmlFor="single">Single</label>
         </form>
         <img src={ScalewayImage} alt="Scaleway" height={30} />
-      </div>
+      </ProviderDescription>
 
       <Scale width={scalewayComWidth} color={(isMin && "#FF00FF") || "grey"} />
       <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
-    </div>
+    </ProviderContainer>
   );
 };
 
