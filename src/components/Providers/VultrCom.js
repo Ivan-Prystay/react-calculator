@@ -6,6 +6,7 @@ import VultrImage from "../../icons/vultr.png";
 import {
   ProviderContainer,
   ProviderDescription,
+  TotalPrice,
 } from "components/ProviderElements/ProviderElements";
 
 const VultrCom = ({ inputValue }) => {
@@ -29,10 +30,10 @@ const VultrCom = ({ inputValue }) => {
     <ProviderContainer>
       <ProviderDescription>
         <p>vultr</p>
-        <img src={VultrImage} alt="#" />
+        <img src={VultrImage} alt="#" height={30} />
       </ProviderDescription>
       <Scale width={vultrComWidth} color={(isMin && "#4a86e8") || "grey"} />
-      <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
+      <TotalPrice>{+total.toFixed(2)} $</TotalPrice>
     </ProviderContainer>
   );
 };

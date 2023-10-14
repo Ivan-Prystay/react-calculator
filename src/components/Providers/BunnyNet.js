@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useWidth } from "../WidthContext";
 
 import {
+  FormWrapper,
   ProviderContainer,
   ProviderDescription,
+  TotalPrice,
 } from "components/ProviderElements/ProviderElements";
 import { Scale } from "../Scale/Scale";
 import BunnyImage from "../../icons/bunny.png";
@@ -42,29 +44,32 @@ const BunnyNet = ({ inputValue }) => {
   return (
     <ProviderContainer>
       <ProviderDescription>
-        <form>
-          <legend>bunny</legend>
-          <input
-            id="hdd"
-            type="radio"
-            name="disk"
-            checked={selectedDisk === "hdd"}
-            onChange={handleDiskChange}
-          />
-          <label htmlFor="hdd">HDD</label>
-          <input
-            id="ssd"
-            type="radio"
-            name="disk"
-            checked={selectedDisk === "ssd"}
-            onChange={handleDiskChange}
-          />
-          <label htmlFor="ssd">SSD</label>
-        </form>
+        <FormWrapper>
+          <p>bunny</p>
+          <form>
+            <input
+              id="hdd"
+              type="radio"
+              name="disk"
+              checked={selectedDisk === "hdd"}
+              onChange={handleDiskChange}
+            />
+            <label htmlFor="hdd">HDD</label>
+            <input
+              id="ssd"
+              type="radio"
+              name="disk"
+              checked={selectedDisk === "ssd"}
+              onChange={handleDiskChange}
+              // style={{ marginLeft: "20px" }}
+            />
+            <label htmlFor="ssd">SSD</label>
+          </form>
+        </FormWrapper>
         <img src={BunnyImage} alt="BunnyImage" height={30} />
       </ProviderDescription>
       <Scale width={bunnyNetWidth} color={(isMin && "#FF9900") || "grey"} />
-      <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
+      <TotalPrice>{+total.toFixed(2)} $</TotalPrice>
     </ProviderContainer>
   );
 };

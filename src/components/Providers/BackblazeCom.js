@@ -5,6 +5,7 @@ import { Scale } from "../Scale/Scale";
 import {
   ProviderContainer,
   ProviderDescription,
+  TotalPrice,
 } from "components/ProviderElements/ProviderElements";
 import BackblazeImage from "../../icons/backblaze.png";
 
@@ -32,11 +33,10 @@ const BackblazeCom = ({ inputValue }) => {
     <ProviderContainer>
       <ProviderDescription>
         <p>backblaze</p>
-        <img src={BackblazeImage} alt="#" />
+        <img src={BackblazeImage} alt="#" height={30} />
       </ProviderDescription>
       <Scale width={backblazeComWidth} color={(isMin && "#FF0000") || "grey"} />
-
-      <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
+      <TotalPrice>{+total.toFixed(2)} $</TotalPrice>
     </ProviderContainer>
   );
 };

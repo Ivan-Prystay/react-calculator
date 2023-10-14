@@ -3,6 +3,7 @@ import { useWidth } from "./WidthContext";
 
 import Range from "./Range/Range";
 import {
+  AllProvidersContainer,
   AllRangeContainer,
   GeneralContainer,
   RangeContainer,
@@ -43,28 +44,28 @@ function App() {
 
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Provider calculator</h1>
+      <h1 style={{ textAlign: "center" }}>Providers calculator</h1>
 
       <GeneralContainer>
         <AllRangeContainer>
           <TypeRangeContainer>
             <SpanContainer>
-              <span>Storage:</span>
-              <span>{storage} GB</span>
+              <span>Storage :</span>
+              <span style={{ fontWeight: "bold" }}>{storage} GB</span>
             </SpanContainer>
             <RangeContainer>
               <Range storage onChange={handleStorageChange} />
             </RangeContainer>
             <SpanContainer>
               <span>0</span>
-              <span>100</span>
+              <span>1000</span>
             </SpanContainer>
           </TypeRangeContainer>
 
           <TypeRangeContainer>
             <SpanContainer>
-              <span>Transfer:</span>
-              <span>{transfer} GB</span>
+              <span>Transfer :</span>
+              <span style={{ fontWeight: "bold" }}>{transfer} GB</span>
             </SpanContainer>
 
             <RangeContainer>
@@ -73,12 +74,12 @@ function App() {
 
             <SpanContainer>
               <span>0</span>
-              <span>100</span>
+              <span>1000</span>
             </SpanContainer>
           </TypeRangeContainer>
         </AllRangeContainer>
 
-        <div>
+        <AllProvidersContainer>
           <BackblazeCom
             inputValue={{
               storage,
@@ -107,7 +108,7 @@ function App() {
               isMin: min === vultrComWidth,
             }}
           />
-        </div>
+        </AllProvidersContainer>
       </GeneralContainer>
     </>
   );

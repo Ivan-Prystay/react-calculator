@@ -4,8 +4,10 @@ import { useWidth } from "../WidthContext";
 import { Scale } from "../Scale/Scale";
 import ScalewayImage from "../../icons/scaleway.png";
 import {
+  FormWrapper,
   ProviderContainer,
   ProviderDescription,
+  TotalPrice,
 } from "components/ProviderElements/ProviderElements";
 
 const ScalewayCom = ({ inputValue }) => {
@@ -45,30 +47,33 @@ const ScalewayCom = ({ inputValue }) => {
   return (
     <ProviderContainer>
       <ProviderDescription>
-        <form>
-          <legend>scaleway</legend>
-          <input
-            id="multi"
-            type="radio"
-            name="disk"
-            checked={selectedDisk === "multi"}
-            onChange={handleDiskChange}
-          />
-          <label htmlFor="multi">Multi</label>
-          <input
-            id="single"
-            type="radio"
-            name="disk"
-            checked={selectedDisk === "single"}
-            onChange={handleDiskChange}
-          />
-          <label htmlFor="single">Single</label>
-        </form>
+        <FormWrapper>
+          <p>scaleway</p>
+          <form>
+            <input
+              id="multi"
+              type="radio"
+              name="disk"
+              checked={selectedDisk === "multi"}
+              onChange={handleDiskChange}
+            />
+            <label htmlFor="multi">Multi</label>
+            <input
+              id="single"
+              type="radio"
+              name="disk"
+              checked={selectedDisk === "single"}
+              onChange={handleDiskChange}
+              // style={{ marginLeft: "20px" }}
+            />
+            <label htmlFor="single">Single</label>
+          </form>
+        </FormWrapper>
         <img src={ScalewayImage} alt="Scaleway" height={30} />
       </ProviderDescription>
 
       <Scale width={scalewayComWidth} color={(isMin && "#FF00FF") || "grey"} />
-      <p style={{ marginLeft: "20px" }}>{+total.toFixed(2)}$</p>
+      <TotalPrice>{+total.toFixed(2)} $</TotalPrice>
     </ProviderContainer>
   );
 };

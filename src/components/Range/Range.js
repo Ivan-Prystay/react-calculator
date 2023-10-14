@@ -6,16 +6,16 @@ const StyledInput = styled.input`
 
   &::-webkit-slider-runnable-track {
     background-color: black;
-    height: 10px;
+    height: 4px;
   }
   &::-webkit-slider-thumb {
     appearance: none;
-    width: 10px;
-    height: 30px;
+    width: 15px;
+    height: 40px;
     background: black;
-    margin-top: -10px;
+    margin-top: -18px;
   }
-  padding: 15px 0;
+  padding: 10px 0;
   margin: 0;
 `;
 
